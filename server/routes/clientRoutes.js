@@ -1,0 +1,27 @@
+const express = require('express');
+const router = express.Router();
+const session = require('express-session');
+
+//Cliente
+const cauth = require('../middlewares/clientAuth');
+cauth.init(router)
+
+router.post('/register', cauth.register);
+router.post('/login', cauth.login);
+router.get('/logged_in', cauth.isLoggedIn);
+router.post('/logout', cauth.requireLogin, cauth.logout);
+
+const clientController = require('../controllers/clientController.js')
+router.get('/getproducts', clientController.getAllProducts_client);
+router.post('/agregarcarrito', cauth.requireLogin, clientController.agregarCarrito);
+router.get('/vercarrito/:id', cauth.requireLogin, clientController.verCarrito);
+router.delete('/vaciarcarrito', cauth.requireLogin, clientController.vaciarCarrito);
+router.post('/realizarcompra', cauth.requireLogin, clientController.realizarCompra);
+router.get('/vercompras', cauth.requireLogin, clientController.verCompras);
+router.post('/creardireccion', cauth.requireLogin, clientController.crearDireccionCliente);
+router.get('/verdireccion/', cauth.requireLogin, clientController.verDireccionesCliente);
+router.post('/editardireccion/', cauth.requireLogin, clientController.editarDireccionCliente);
+router.delete('/eliminardireccion/', cauth.requireLogin, clientController.eliminarDireccionCliente);
+
+module.exports = router;
+
