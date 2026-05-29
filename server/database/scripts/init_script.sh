@@ -7,7 +7,7 @@ db_passwd="mariadbuser"
 db_name="TecnoComponentes_BD"
 db_ipaddr="%"
 root_pass="pass_root"
-container_name="container-Test"
+container_name="tecomp_bd_container"
 script_dir=$(dirname "$0")
 
 # --- START CONTAINER ---
