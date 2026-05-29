@@ -3,14 +3,14 @@
 ## Pasos para Docker:
 
 ### Pasos para cargar
-1. Tener docker instalado 
+1. Tener [docker](https://docs.docker.com/engine/install/) instalado 
 2. Ejecutar los comandos de iniciialización de bd
 ```bash
 chmod +x server/database/scripts/init_script.sh
 ./server/database/scripts/init_script.sh
 ```
 
-PRECAUCION: VERIFICAR SI EL PUERTO 3306
+PRECAUCION: VERIFICAR SI EL PUERTO 3306 ESTÁ DISPONIBLE
 
 ### Adicional
 Iniciar el contenedor: "docker start tecomp_bd_container"
